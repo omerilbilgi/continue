@@ -32,6 +32,13 @@ export async function* llmStreamChat(
     messageOptions,
   } = msg.data;
 
+  // 🎯 User Input Logging
+  console.log("\n========================================");
+  console.log("🎯 [STREAM CHAT] User input received");
+  console.log("========================================");
+  console.log("Messages:", JSON.stringify(messages, null, 2));
+  console.log("========================================\n");
+
   const model = config.selectedModelByRole.chat;
 
   if (!model) {

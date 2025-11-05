@@ -421,6 +421,31 @@ class Ollama extends BaseLLM implements ModelInstaller {
     if (this.apiKey) {
       headers.Authorization = `Bearer ${this.apiKey}`;
     }
+
+    // 📤 Ollama Request Logging
+    console.log("\n========================================");
+    console.log("📤 [OLLAMA] Request to Ollama API");
+    console.log("========================================");
+    console.log("Model:", chatOptions.model);
+    console.log("Messages Count:", chatOptions.messages.length);
+    console.log(
+      "Last Message:",
+      JSON.stringify(
+        chatOptions.messages[chatOptions.messages.length - 1],
+        null,
+        2,
+      ),
+    );
+    if (chatOptions.tools?.length) {
+      console.log("Tools Count:", chatOptions.tools.length);
+      console.log(
+        "Available Tools:",
+        chatOptions.tools.map((t) => t.function.name).join(", "),
+      );
+    }
+    console.log("Full Request Body:", JSON.stringify(chatOptions, null, 2));
+    console.log("========================================\n");
+
     const response = await this.fetch(this.getEndpoint("api/chat"), {
       method: "POST",
       headers: headers,
@@ -496,6 +521,22 @@ class Ollama extends BaseLLM implements ModelInstaller {
           if (chunk.trim() !== "") {
             try {
               const j = JSON.parse(chunk) as OllamaChatResponse;
+
+              // 📥 Ollama Response Logging
+              console.log("\n========================================");
+              console.log("📥 [OLLAMA] Response from Ollama");
+              console.log("========================================");
+              console.log("Response Chunk:", JSON.stringify(j, null, 2));
+              if (!("error" in j) && j.message?.tool_calls?.length) {
+                console.log(
+                  "🔧 Tool Calls Detected:",
+                  j.message.tool_calls
+                    .map((tc: any) => tc.function.name)
+                    .join(", "),
+                );
+              }
+              console.log("========================================\n");
+
               for (const msg of convertChatMessage(j)) {
                 yield msg;
               }

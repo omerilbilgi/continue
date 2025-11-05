@@ -4,7 +4,9 @@
 
 </div>
 
-<h1 align="center">Continue</h1>
+<h1 align="center">AIRS (Fork of Continue)</h1>
+
+> **Note:** This is a fork of [Continue](https://github.com/continuedev/continue), customized and rebranded as AIRS. All original Continue features are preserved, with modifications primarily to branding and extension metadata.
 
 <div align="center">
 

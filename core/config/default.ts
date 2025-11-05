@@ -1,8 +1,73 @@
 import { ConfigYaml } from "@continuedev/config-yaml";
 
 export const defaultConfig: ConfigYaml = {
-  name: "Local Config",
+  name: "AIRS.",
   version: "1.0.0",
   schema: "v1",
-  models: [],
+  models: [
+    {
+      name: "Qwen3",
+      provider: "ollama",
+      model: "qwen3-serve-40k:latest",
+      apiBase: "http://172.17.200.54:11437",
+      capabilities: ["tool_use"],
+      roles: ["autocomplete", "chat", "edit", "apply"],
+    },
+    {
+      name: "GPT-OSS",
+      provider: "ollama",
+      model: "gpt-oss:120B",
+      apiBase: "http://172.17.200.54:11434",
+      roles: ["chat", "autocomplete", "edit", "apply"],
+      capabilities: ["tool_use", "reasoning"],
+      defaultCompletionOptions: {
+        temperature: 0.6,
+        stream: true,
+        reasoning: true,
+      },
+    },
+    {
+      name: "GPT-OSS-120B-16k",
+      provider: "ollama",
+      model: "gpt-oss:120B-16k",
+      apiBase: "http://172.17.200.54:11434",
+      roles: ["chat", "autocomplete", "edit", "apply"],
+      capabilities: ["tool_use", "reasoning"],
+      defaultCompletionOptions: {
+        temperature: 0.6,
+        stream: true,
+        reasoning: true,
+      },
+    },
+    {
+      name: "GPT-OSS-120B-64k",
+      provider: "ollama",
+      model: "gpt-oss:120B-64k",
+      apiBase: "http://172.17.200.54:11434",
+      roles: ["chat", "autocomplete", "edit", "apply"],
+      capabilities: ["tool_use", "reasoning"],
+      defaultCompletionOptions: {
+        temperature: 0.6,
+        stream: true,
+        reasoning: true,
+      },
+    },
+    {
+      name: "Qwen2.5",
+      provider: "ollama",
+      model: "qwen2.5-coder-custom:latest",
+      apiBase: "http://172.17.200.54:11437",
+      capabilities: ["tool_use"],
+      roles: ["autocomplete"],
+    },
+    {
+      name: "Instinct",
+      provider: "ollama",
+      model: "nate/instinct:latest",
+      apiBase: "http://172.17.200.54:11437",
+      capabilities: ["tool_use"],
+      roles: ["autocomplete"],
+    },
+  ],
+  context: [],
 };

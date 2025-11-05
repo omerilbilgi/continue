@@ -184,6 +184,16 @@ export async function callBuiltInTool(
     case BuiltInToolNames.ViewSubdirectory:
       return await viewSubdirectoryImpl(args, extras);
     default:
+      // 🚫 Unknown Tool Logging
+      console.log("\n========================================");
+      console.log("🚫 [TOOL VALIDATION] Unknown tool blocked");
+      console.log("========================================");
+      console.log("Tool Name:", functionName);
+      console.log(
+        "Available Tools:",
+        Object.values(BuiltInToolNames).join(", "),
+      );
+      console.log("========================================\n");
       throw new Error(`Tool "${functionName}" not found`);
   }
 }
@@ -200,6 +210,19 @@ export async function callTool(
   errorMessage: string | undefined;
   errorReason?: ContinueErrorReason;
 }> {
+  // 🔧 Tool Execution Start Logging
+  console.log("\n========================================");
+  console.log("🔧 [TOOL EXECUTION] Starting tool call");
+  console.log("========================================");
+  console.log("Tool Name:", tool.function.name);
+  console.log("Tool Call ID:", toolCall.id);
+  console.log(
+    "Arguments:",
+    JSON.stringify(toolCall.function.arguments, null, 2),
+  );
+  console.log("Is MCP Tool:", !!tool.uri);
+  console.log("========================================\n");
+
   try {
     const args = safeParseToolCallArgs(toolCall);
     const contextItems = tool.uri
@@ -210,6 +233,26 @@ export async function callTool(
         item.icon = tool.faviconUrl;
       });
     }
+
+    // ✅ Tool Execution Success Logging
+    console.log("\n========================================");
+    console.log("✅ [TOOL EXECUTION] Tool completed successfully");
+    console.log("========================================");
+    console.log("Tool Name:", tool.function.name);
+    console.log("Result Items Count:", contextItems.length);
+    console.log(
+      "Result Preview:",
+      JSON.stringify(
+        contextItems.map((item) => ({
+          name: item.name,
+          description: item.description,
+        })),
+        null,
+        2,
+      ),
+    );
+    console.log("========================================\n");
+
     return {
       contextItems,
       errorMessage: undefined,
@@ -224,6 +267,14 @@ export async function callTool(
     } else if (e instanceof Error) {
       errorMessage = e.message;
     }
+
+    // ❌ Tool Execution Failure Logging
+    console.log("\n========================================");
+    console.log("❌ [TOOL EXECUTION] Tool failed");
+    console.log("========================================");
+    console.log("Tool Name:", tool.function.name);
+    console.log("Error:", errorMessage);
+    console.log("========================================\n");
 
     return {
       contextItems: [],
