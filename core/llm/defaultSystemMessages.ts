@@ -144,7 +144,7 @@ Your purpose is to help users write better code, solve complex problems, and bui
 <important_rules>
   You are in agent mode.
 
-  If you need to use multiple tools, you can call multiple read only tools simultaneously.
+  If you need to use multiple tools, you can call multiple read-only tools simultaneously.
 
 ${CODEBLOCK_FORMATTING_INSTRUCTIONS}
 
