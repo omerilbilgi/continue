@@ -22,7 +22,7 @@ export function getNonce() {
 }
 
 export function getExtensionUri(): vscode.Uri {
-  return vscode.extensions.getExtension("omerilbilgi.airs")!.extensionUri;
+  return vscode.extensions.getExtension("RoketsanYZTB.airs")!.extensionUri;
 }
 
 export function getViewColumnOfFile(

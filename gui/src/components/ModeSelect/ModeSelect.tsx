@@ -156,7 +156,7 @@ export function ModeSelect() {
                 style={{
                   zIndex: 200001,
                 }}
-                content="Read-only/MCP tools available"
+                content="Read-only tools available"
               >
                 <InformationCircleIcon className="h-2.5 w-2.5 flex-shrink-0" />
               </ToolTip>
@@ -186,7 +186,7 @@ export function ModeSelect() {
             />
           </ListboxOption>
 
-          <ListboxOption
+          {/*<ListboxOption
             value="background"
             className={"gap-1"}
             disabled={isLocalAgent}
@@ -209,7 +209,7 @@ export function ModeSelect() {
             <CheckIcon
               className={`ml-auto h-3 w-3 ${mode === "background" ? "" : "opacity-0"}`}
             />
-          </ListboxOption>
+          </ListboxOption>*/}
 
           <div className="text-description-muted px-2 py-1">
             {`${metaKeyLabel} . for next mode`}

@@ -19,8 +19,6 @@ import { ToolTip } from "../../../components/gui/Tooltip";
 import { useEditBlock } from "../../../components/mainInput/Lump/useEditBlock";
 import {
   Button,
-  Card,
-  EmptyState,
   Listbox,
   ListboxButton,
   ListboxOption,
@@ -415,7 +413,7 @@ export function ToolsSection() {
   );
   const { selectedProfile } = useAuth();
   const ideMessenger = useContext(IdeMessengerContext);
-  const disableMcp = currentOrg?.policy?.allowMcpServers === false;
+  const disableMcp = true;
   const isLocal = selectedProfile?.profileType === "local";
 
   const duplicateDetection = useMemo(() => {
@@ -499,7 +497,7 @@ export function ToolsSection() {
           allToolsOff={allToolsOff}
           duplicateDetection={duplicateDetection}
         />
-        <ConfigHeader
+        {/* <ConfigHeader
           className="pr-2"
           title="MCP Servers"
           variant="sm"
@@ -537,7 +535,7 @@ export function ToolsSection() {
               </Card>
             )}
           </>
-        )}
+        )} */}
       </div>
     </>
   );

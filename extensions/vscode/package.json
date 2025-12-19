@@ -1,8 +1,8 @@
 {
   "name": "airs",
   "icon": "media/airs.png",
-  "author": "ROKETSAN YZT",
-  "version": "1.0.45",
+  "author": "Roketsan Yapay Zeka Teknolojileri Birimi",
+  "version": "1.0.48",
   "repository": {
     "type": "git",
     "url": "https://github.com/omerilbilgi/continue"
@@ -21,7 +21,7 @@
   "displayName": "AIRS Coder",
   "pricing": "Free",
   "description": "AIRS – an open-source AI coding assistant forked from Continue",
-  "publisher": "omerilbilgi",
+  "publisher": "RoketsanYZTB",
   "engines": {
     "vscode": "^1.70.0",
     "node": ">=20.19.0"
@@ -53,7 +53,7 @@
   "activationEvents": [
     "onUri",
     "onStartupFinished",
-    "onView:omerilbilgi.airsGUIView"
+    "onView:RoketsanYZTB.airsGUIView"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -501,7 +501,7 @@
     ],
     "submenus": [
       {
-        "id": "omerilbilgi.airsSubMenu",
+        "id": "RoketsanYZTB.airsSubMenu",
         "label": "Continue"
       }
     ],
@@ -531,7 +531,7 @@
       ],
       "editor/context": [
         {
-          "submenu": "omerilbilgi.airsSubMenu",
+          "submenu": "RoketsanYZTB.airsSubMenu",
           "group": "0_acontinue"
         }
       ],
@@ -542,7 +542,7 @@
           "when": "continue.streamingDiff"
         }
       ],
-      "omerilbilgi.airsSubMenu": [
+      "RoketsanYZTB.airsSubMenu": [
         {
           "command": "continue.focusContinueInputWithoutClear",
           "group": "Continue"
@@ -563,34 +563,34 @@
         {
           "command": "continue.newSession",
           "group": "navigation@1",
-          "when": "view == omerilbilgi.airsGUIView"
+          "when": "view == RoketsanYZTB.airsGUIView"
         },
         {
           "command": "continue.viewHistory",
           "group": "navigation@2",
-          "when": "view == omerilbilgi.airsGUIView"
+          "when": "view == RoketsanYZTB.airsGUIView"
         },
         {
           "command": "continue.openConfigPage",
           "group": "navigation@4",
-          "when": "view == omerilbilgi.airsGUIView"
+          "when": "view == RoketsanYZTB.airsGUIView"
         },
         {
           "command": "continue.clearConsole",
           "group": "navigation@1",
-          "when": "view == omerilbilgi.airsConsoleView"
+          "when": "view == RoketsanYZTB.airsConsoleView"
         }
       ],
       "editor/title": [
         {
           "command": "continue.newSession",
           "group": "navigation@1",
-          "when": "activeWebviewPanelId == omerilbilgi.airsGUIView"
+          "when": "activeWebviewPanelId == RoketsanYZTB.airsGUIView"
         },
         {
           "command": "continue.viewHistory",
           "group": "navigation@2",
-          "when": "activeWebviewPanelId == omerilbilgi.airsGUIView"
+          "when": "activeWebviewPanelId == RoketsanYZTB.airsGUIView"
         }
       ],
       "terminal/context": [
@@ -620,7 +620,7 @@
       "continue": [
         {
           "type": "webview",
-          "id": "omerilbilgi.airsGUIView",
+          "id": "RoketsanYZTB.airsGUIView",
           "name": "Chat",
           "icon": "media/airs.png",
           "visibility": "visible"
@@ -629,7 +629,7 @@
       "continueConsole": [
         {
           "type": "webview",
-          "id": "omerilbilgi.airsConsoleView",
+          "id": "RoketsanYZTB.airsConsoleView",
           "name": "AIRS Coder Console",
           "icon": "$(window)",
           "visibility": "visible",

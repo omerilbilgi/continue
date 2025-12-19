@@ -1,20 +1,12 @@
 import {
   ArrowLeftIcon,
-  BuildingOfficeIcon,
-  CircleStackIcon,
   Cog6ToothIcon,
-  CubeIcon,
-  DocumentIcon,
   PencilIcon,
   QuestionMarkCircleIcon,
   WrenchScrewdriverIcon,
 } from "@heroicons/react/24/outline";
 import { ConfigSection } from "./components/ConfigSection";
-import { ConfigsSection } from "./sections/ConfigsSection";
 import { HelpSection } from "./sections/HelpSection";
-import { IndexingSettingsSection } from "./sections/IndexingSettingsSection";
-import { ModelsSection } from "./sections/ModelsSection";
-import { OrganizationsSection } from "./sections/OrganizationsSection";
 import { RulesSection } from "./sections/RulesSection";
 import { ToolsSection } from "./sections/ToolsSection";
 import { UserSettingsSection } from "./sections/UserSettingsSection";
@@ -50,7 +42,7 @@ export const topTabSections: TabSection[] = [
     id: "blocks",
     showTopDivider: true,
     tabs: [
-      {
+      /*{
         id: "models",
         label: "Models",
         component: (
@@ -59,7 +51,7 @@ export const topTabSections: TabSection[] = [
           </ConfigSection>
         ),
         icon: <CubeIcon className="xs:h-4 xs:w-4 h-3 w-3 flex-shrink-0" />,
-      },
+      },*/
       {
         id: "rules",
         label: "Rules",
@@ -84,7 +76,7 @@ export const topTabSections: TabSection[] = [
       },
     ],
   },
-  {
+  /*{
     id: "agents-orgs",
     showTopDivider: true,
     tabs: [
@@ -111,8 +103,8 @@ export const topTabSections: TabSection[] = [
         ),
       },
     ],
-  },
-  {
+  },*/
+  /*{
     id: "indexing",
     showTopDivider: true,
     tabs: [
@@ -129,7 +121,7 @@ export const topTabSections: TabSection[] = [
         ),
       },
     ],
-  },
+  },*/
 ];
 
 export const bottomTabSections: TabSection[] = [

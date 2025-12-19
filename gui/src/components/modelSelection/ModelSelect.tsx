@@ -3,7 +3,6 @@ import {
   ChevronDownIcon,
   Cog6ToothIcon,
   CubeIcon,
-  PlusIcon,
 } from "@heroicons/react/24/outline";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -312,10 +311,10 @@ function ModelSelect() {
                     fontSizeModifier={-2}
                     className="px-2 py-2"
                   >
-                    <span className="text-description text-2xs flex flex-row items-center">
+                    {/* <span className="text-description text-2xs flex flex-row items-center">
                       <PlusIcon className="mr-1.5 h-3.5 w-3.5" />
                       Add Chat model
-                    </span>
+                    </span> */}
                   </ListboxOption>
                 </>
               )}

@@ -1,9 +1,3 @@
-import {
-  ArrowPathIcon,
-  ArrowRightStartOnRectangleIcon,
-  Cog6ToothIcon,
-  PlusIcon,
-} from "@heroicons/react/24/outline";
 import { isOnPremSession } from "core/control-plane/AuthTypes";
 import { useContext, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
@@ -14,20 +8,9 @@ import {
   selectCurrentOrg,
   setSelectedProfile,
 } from "../../redux/slices/profilesSlice";
-import { getMetaKeyLabel, isMetaEquivalentKeyPressed } from "../../util";
-import { cn } from "../../util/cn";
+import { isMetaEquivalentKeyPressed } from "../../util";
 import { CONFIG_ROUTES } from "../../util/navigation";
-import {
-  Button,
-  Listbox,
-  ListboxOptions,
-  Transition,
-  useFontSize,
-} from "../ui";
-import { Divider } from "../ui/Divider";
-import { AssistantOptions } from "./AssistantOptions";
-import { OrganizationOptions } from "./OrganizationOptions";
-import { SelectedAssistantButton } from "./SelectedAssistantButton";
+import { useFontSize } from "../ui";
 
 export interface AssistantAndOrgListboxProps {
   variant: "lump" | "sidebar";
@@ -142,6 +125,16 @@ export function AssistantAndOrgListbox({
   }, [currentOrg, selectedProfile]);
 
   return (
+    <div className="relative" ref={listboxRef}>
+      {/* Static text - no button, no dropdown */}
+      <span className="text-description line-clamp-1 break-all text-xs">
+        {selectedProfile?.title || "No Config"}
+      </span>
+    </div>
+  );
+
+  /* Original Listbox implementation - commented out
+  return (
     <Listbox>
       <div className="relative" ref={listboxRef}>
         <SelectedAssistantButton
@@ -227,7 +220,7 @@ export function AssistantAndOrgListbox({
               </>
             )}
 
-            {/* Settings Section */}
+            {// Settings Section }
             {variant !== "sidebar" && (
               <div>
                 <Button
@@ -287,7 +280,7 @@ export function AssistantAndOrgListbox({
               </div>
             )}
 
-            {/* Bottom Actions */}
+            {// Bottom Actions }
             <div>
               <div className="text-description flex items-center justify-start px-2 py-1">
                 <span className="block" style={{ fontSize: tinyFont }}>
@@ -300,4 +293,5 @@ export function AssistantAndOrgListbox({
       </div>
     </Listbox>
   );
+  */
 }

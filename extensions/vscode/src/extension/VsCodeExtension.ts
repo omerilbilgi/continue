@@ -261,7 +261,7 @@ export class VsCodeExtension {
     // Sidebar
     context.subscriptions.push(
       vscode.window.registerWebviewViewProvider(
-        "omerilbilgi.airsGUIView",
+        "RoketsanYZTB.airsGUIView",
         this.sidebar,
         {
           webviewOptions: { retainContextWhenHidden: true },
@@ -410,7 +410,7 @@ export class VsCodeExtension {
 
     context.subscriptions.push(
       vscode.window.registerWebviewViewProvider(
-        "omerilbilgi.airsConsoleView",
+        "RoketsanYZTB.airsConsoleView",
         this.consoleView,
       ),
     );

@@ -1,13 +1,8 @@
-import { CommandLineIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useContext, useEffect, useRef, useState } from "react";
-import { CloseButton } from ".";
 import { IdeMessengerContext } from "../context/IdeMessenger";
 import useCopy from "../hooks/useCopy";
 import { getPlatform } from "../util";
 import { getLocalStorage, setLocalStorage } from "../util/localStorage";
-import { CopyButton } from "./StyledMarkdownPreview/StepContainerPreToolbar/CopyButton";
-import { RunInTerminalButton } from "./StyledMarkdownPreview/StepContainerPreToolbar/RunInTerminalButton";
-import { Card } from "./ui";
 
 interface CliInstallBannerProps {
   /** Number of sessions user has had - banner shows only if >= sessionThreshold */
@@ -101,67 +96,5 @@ export function CliInstallBanner({
     return null;
   }
 
-  return (
-    <div className="border-t-vsc-input-border bg-vsc-background sticky bottom-0 border-t px-4 pb-4 pt-4">
-      <Card className="relative">
-        <CloseButton onClick={handleDismiss}>
-          <XMarkIcon className="h-5 w-5 hover:brightness-125" />
-        </CloseButton>
-        <div className="flex flex-col gap-3">
-          <div>
-            <div className="text-foreground flex items-center gap-2 font-medium">
-              <CommandLineIcon className="h-5 w-5 flex-shrink-0 text-gray-400" />
-              Try out the Continue CLI
-            </div>
-            <div className="text-description mt-1 text-sm">
-              Use{" "}
-              <code className="bg-vsc-background rounded px-1.5 py-0.5">
-                cn
-              </code>{" "}
-              in your terminal interactively and then deploy Continuous AI
-              workflows.{" "}
-              <span
-                onClick={() =>
-                  ideMessenger.post(
-                    "openUrl",
-                    "https://docs.continue.dev/guides/cli",
-                  )
-                }
-                className="cursor-pointer underline hover:brightness-125"
-              >
-                Learn more.
-              </span>
-            </div>
-          </div>
-          <div className="flex flex-col items-start gap-2 self-stretch">
-            <div className="rounded-default outline-command-border flex items-center self-stretch outline outline-1">
-              <div className="bg-editor rounded-l-default relative flex-1 px-3 py-3">
-                <span
-                  ref={commandTextRef}
-                  className="text-foreground cursor-pointer text-xs"
-                  style={{ fontFamily: "var(--vscode-editor-font-family)" }}
-                  onClick={handleCommandClick}
-                >
-                  npm i -g @continuedev/cli
-                </span>
-                {showCopiedMessage && (
-                  <span className="bg-editor rounded-l-default absolute inset-0 flex items-center justify-center px-2 text-xs font-medium">
-                    Copied!
-                  </span>
-                )}
-              </div>
-              <div className="bg-background rounded-r-default flex items-center gap-2 px-3 py-3">
-                <CopyButton
-                  text={`npm i -g @continuedev/cli && cn "Explore this repo and provide a concise summary of it's contents"`}
-                />
-                <RunInTerminalButton
-                  command={`npm i -g @continuedev/cli && cn "Explore this repo and provide a concise summary of it's contents"`}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </Card>
-    </div>
-  );
+  return;
 }

@@ -1,12 +1,10 @@
-import { Cog6ToothIcon } from "@heroicons/react/24/outline";
 import { BuildingOfficeIcon, UserIcon } from "@heroicons/react/24/solid";
 import { SerializedOrgWithProfiles } from "core/config/ProfileLifecycleManager";
 import { isOnPremSession } from "core/control-plane/AuthTypes";
 import { useContext } from "react";
-import { Button, Card, Divider } from "../../../components/ui";
+import { Card } from "../../../components/ui";
 import { useAuth } from "../../../context/Auth";
 import { IdeMessengerContext } from "../../../context/IdeMessenger";
-import { ConfigHeader } from "../components/ConfigHeader";
 
 function getOrgIcon(org: { name: string; iconUrl?: string | null }) {
   if (org.iconUrl) {
@@ -66,41 +64,5 @@ export function OrganizationsSection() {
     );
   }
 
-  return (
-    <>
-      <ConfigHeader
-        title="Organizations"
-        onAddClick={handleAddOrganization}
-        addButtonTooltip="Add organization"
-      />
-
-      <Card>
-        {organizations.map((organization, index) => (
-          <div key={organization.id}>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center">
-                  {getOrgIcon(organization)}
-                </div>
-                <div className="flex-1">
-                  <h3 className="my-2 text-sm font-medium">
-                    {organization.name}
-                  </h3>
-                </div>
-              </div>
-              <Button
-                onClick={() => handleConfigureOrganization(organization)}
-                variant="ghost"
-                size="sm"
-                className="text-description-muted hover:enabled:text-foreground my-0 h-6 w-6 p-0"
-              >
-                <Cog6ToothIcon className="h-4 w-4 flex-shrink-0" />
-              </Button>
-            </div>
-            {index < organizations.length - 1 && <Divider />}
-          </div>
-        ))}
-      </Card>
-    </>
-  );
+  return;
 }
