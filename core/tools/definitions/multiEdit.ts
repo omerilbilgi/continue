@@ -118,6 +118,24 @@ WARNINGS:
     );
 
     const editingFileContents = await extras.ide.readFile(fileUri);
+
+    // 🔥 DEBUG LOGGING - Multi edit tool preprocessing
+    console.log("\n🔧 MULTI EDIT - PREPROCESSING");
+    console.log("─".repeat(60));
+    console.log("📁 File:", args.filepath);
+    console.log("📏 File Size:", editingFileContents.length, "characters");
+    console.log(
+      "🔢 Estimated Tokens:",
+      Math.ceil(editingFileContents.length / 4),
+    );
+    console.log("✏️  Number of edits:", edits.length);
+    edits.forEach((edit, idx) => {
+      console.log(`  [${idx}] Old: ${edit.old_string.length} chars`);
+      console.log(`      New: ${edit.new_string.length} chars`);
+      console.log(`      Replace all: ${edit.replace_all || false}`);
+    });
+    console.log("─".repeat(60) + "\n");
+
     const newFileContents = executeMultiFindAndReplace(
       editingFileContents,
       edits,

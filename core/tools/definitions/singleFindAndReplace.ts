@@ -85,6 +85,21 @@ WARNINGS:
     );
 
     const editingFileContents = await extras.ide.readFile(fileUri);
+
+    // 🔥 DEBUG LOGGING - Edit tool preprocessing
+    console.log("\n🔧 SINGLE FIND AND REPLACE - PREPROCESSING");
+    console.log("─".repeat(60));
+    console.log("📁 File:", args.filepath);
+    console.log("📏 File Size:", editingFileContents.length, "characters");
+    console.log(
+      "🔢 Estimated Tokens:",
+      Math.ceil(editingFileContents.length / 4),
+    );
+    console.log("🔍 Old string length:", oldString.length);
+    console.log("✨ New string length:", newString.length);
+    console.log("🔄 Replace all:", replaceAll);
+    console.log("─".repeat(60) + "\n");
+
     const newFileContents = executeFindAndReplace(
       editingFileContents,
       oldString,

@@ -2,7 +2,7 @@ import { AssistantUnrolled } from "@continuedev/config-yaml";
 
 // TODO
 export const defaultConfigYaml: AssistantUnrolled = {
-  name: "AIRS.",
+  name: "AIRS Coder",
   version: "1.0.0",
   schema: "v1",
   models: [
@@ -11,13 +11,44 @@ export const defaultConfigYaml: AssistantUnrolled = {
       provider: "ollama",
       model: "qwen3-serve-40k:latest",
       apiBase: "http://172.17.200.54:11437",
-      capabilities: ["tool_use"],
+      capabilities: ["tool_use", "reasoning"],
       roles: ["autocomplete", "chat", "edit", "apply"],
     },
     {
-      name: "GPT-OSS",
+      name: "Qwen3-Coder-30B-vLLM",
+      provider: "openai",
+      model: "qwen-coder-30b",
+      apiBase: "http://localhost:8000/v1",
+      roles: ["chat", "edit", "apply"],
+      capabilities: ["tool_use"],
+      defaultCompletionOptions: {
+        temperature: 0.2,
+        maxTokens: 4096,
+      },
+    },
+    {
+      name: "Qwen3-8B-vLLM",
+      provider: "openai",
+      model: "qwen3-8b",
+      apiBase: "http://localhost:8000/v1",
+      roles: ["chat", "edit", "apply"],
+      defaultCompletionOptions: {
+        temperature: 0.2,
+        maxTokens: 4096,
+      },
+    },
+    {
+      name: "Qwen3-Coder-30B",
       provider: "ollama",
-      model: "gpt-oss:120B",
+      model: "qwen3-coder:30b",
+      apiBase: "http://172.17.200.54:11434",
+      capabilities: ["tool_use"],
+      roles: ["chat", "edit", "apply"],
+    },
+    {
+      name: "GPT-OSS-20b",
+      provider: "ollama",
+      model: "gpt-oss:latest",
       apiBase: "http://172.17.200.54:11434",
       roles: ["chat", "autocomplete", "edit", "apply"],
       capabilities: ["tool_use", "reasoning"],
@@ -86,8 +117,28 @@ export const defaultConfigYamlJetBrains: AssistantUnrolled = {
       provider: "ollama",
       model: "qwen3-serve-40k:latest",
       apiBase: "http://172.17.200.54:11437",
-      capabilities: ["tool_use"],
+      capabilities: ["tool_use", "reasoning"],
       roles: ["autocomplete", "chat", "edit", "apply"],
+    },
+    {
+      name: "Qwen3-Coder-30B-vLLM",
+      provider: "openai",
+      model: "qwen-coder-30b",
+      apiBase: "http://localhost:8000/v1",
+      roles: ["chat", "edit", "apply"],
+      capabilities: ["tool_use"],
+      defaultCompletionOptions: {
+        temperature: 0.2,
+        maxTokens: 4096,
+      },
+    },
+    {
+      name: "Qwen3-Coder-30B",
+      provider: "ollama",
+      model: "qwen3-coder:30b",
+      apiBase: "http://172.17.200.54:11434",
+      capabilities: ["tool_use"],
+      roles: ["chat", "edit", "apply"],
     },
     {
       name: "GPT-OSS-8k",

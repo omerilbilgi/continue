@@ -1,8 +1,8 @@
 {
   "name": "airs",
-  "icon": "media/code.png",
-  "author": "Omer Ilbilgi",
-  "version": "1.0.13",
+  "icon": "media/airs.png",
+  "author": "ROKETSAN YZT",
+  "version": "1.0.45",
   "repository": {
     "type": "git",
     "url": "https://github.com/omerilbilgi/continue"
@@ -18,7 +18,7 @@
   "homepage": "https://github.com/omerilbilgi/continue",
   "qna": "https://github.com/omerilbilgi/continue/issues/new/choose",
   "license": "Apache-2.0",
-  "displayName": "AIRS",
+  "displayName": "AIRS Coder",
   "pricing": "Free",
   "description": "AIRS – an open-source AI coding assistant forked from Continue",
   "publisher": "omerilbilgi",
@@ -84,7 +84,7 @@
       }
     ],
     "configuration": {
-      "title": "AIRS",
+      "title": "AIRS Coder",
       "properties": {
         "continue.telemetryEnabled": {
           "type": "boolean",
@@ -604,14 +604,14 @@
       "activitybar": [
         {
           "id": "continue",
-          "title": "AIRS",
-          "icon": "media/code.png"
+          "title": "AIRS Coder",
+          "icon": "media/airs.png"
         }
       ],
       "panel": [
         {
           "id": "continueConsole",
-          "title": "AIRS Console",
+          "title": "AIRS Coder Console",
           "icon": "$(window)"
         }
       ]
@@ -621,8 +621,8 @@
         {
           "type": "webview",
           "id": "omerilbilgi.airsGUIView",
-          "name": "Continue",
-          "icon": "media/code.png",
+          "name": "Chat",
+          "icon": "media/airs.png",
           "visibility": "visible"
         }
       ],
@@ -630,7 +630,7 @@
         {
           "type": "webview",
           "id": "omerilbilgi.airsConsoleView",
-          "name": "Continue Console",
+          "name": "AIRS Coder Console",
           "icon": "$(window)",
           "visibility": "visible",
           "when": "config.continue.enableConsole"

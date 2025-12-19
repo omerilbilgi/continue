@@ -1,6 +1,6 @@
 <div align="center">
 
-![Continue logo](media/readme.png)
+![Continue logo](media/airs.png)
 
 </div>
 

@@ -301,6 +301,9 @@ export class VerticalDiffManager {
     streamId: string,
     toolCallId?: string,
   ) {
+    console.log(
+      `[VERTICAL_DIFF] instantApplyDiff start streamId=${streamId} toolCallId=${toolCallId ?? "-"}`,
+    );
     vscode.commands.executeCommand("setContext", "continue.diffVisible", true);
 
     const editor = vscode.window.activeTextEditor;
@@ -311,6 +314,9 @@ export class VerticalDiffManager {
     const fileUri = editor.document.uri.toString();
 
     const myersDiffs = myersDiff(oldContent, newContent);
+    console.log(
+      `[VERTICAL_DIFF] instantApplyDiff diffs=${myersDiffs.length} file=${editor.document.uri.toString()}`,
+    );
 
     const diffHandler = this.createVerticalDiffHandler(
       fileUri,

@@ -165,6 +165,27 @@ export async function* streamDiffLines(
     content: highlighted,
   };
 
+  // 🔍 Log prompt size
+  const promptText =
+    typeof prompt === "string"
+      ? prompt
+      : prompt.map((m) => m.content).join("\n");
+  const promptLength = promptText.length;
+  const estimatedTokens = Math.ceil(promptLength / 4); // Rough estimate: 1 token ≈ 4 chars
+  console.log("\n╔════════════════════════════════════════╗");
+  console.log("║ 📊 EDIT PROMPT SIZE                    ║");
+  console.log("╠════════════════════════════════════════╣");
+  console.log(`║ Prompt chars: ${promptLength.toString().padEnd(23)} ║`);
+  console.log(
+    `║ Estimated tokens: ~${estimatedTokens.toString().padEnd(19)} ║`,
+  );
+  console.log(`║ Prefix length: ${prefix.length.toString().padEnd(22)} ║`);
+  console.log(
+    `║ Highlighted length: ${highlighted.length.toString().padEnd(17)} ║`,
+  );
+  console.log(`║ Suffix length: ${suffix.length.toString().padEnd(22)} ║`);
+  console.log("╚════════════════════════════════════════╝\n");
+
   const completion = recursiveStream(
     llm,
     abortController,
