@@ -213,18 +213,25 @@ export const saveCurrentSession = createAsyncThunk<
           ?.message?.content?.toString();
 
         if (assistantResponse && generateTitle) {
-          try {
-            const result = await extra.ideMessenger.request(
-              "chatDescriber/describe",
-              {
-                text: assistantResponse,
-              },
-            );
-            if (result.status === "success" && result.content) {
-              title = result.content;
+          // First try to extract <TITLE> tag from assistant response
+          const titleMatch = assistantResponse.match(/<TITLE>(.*?)<\/TITLE>/i);
+          if (titleMatch && titleMatch[1]?.trim()) {
+            title = titleMatch[1].trim();
+          } else {
+            // No TITLE tag found, use ChatDescriber to generate one
+            try {
+              const result = await extra.ideMessenger.request(
+                "chatDescriber/describe",
+                {
+                  text: assistantResponse,
+                },
+              );
+              if (result.status === "success" && result.content) {
+                title = result.content;
+              }
+            } catch (e) {
+              console.error("Error generating chat title", e);
             }
-          } catch (e) {
-            console.error("Error generating chat title", e);
           }
         }
       }

@@ -167,7 +167,7 @@ export function UserSettingsSection() {
           </div>
 
           {/* Telemetry Settings */}
-          <div>
+          {/* <div>
             <ConfigHeader title="Telemetry" variant="sm" />
             <Card>
               <div className="flex flex-col gap-4">
@@ -183,7 +183,7 @@ export function UserSettingsSection() {
                 />
               </div>
             </Card>
-          </div>
+          </div> */}
 
           {/* Appearance Settings */}
           <div>

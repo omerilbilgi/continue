@@ -1,8 +1,7 @@
 import {
   ArrowPathIcon,
   ChevronDownIcon,
-  Cog6ToothIcon,
-  CubeIcon,
+  CpuChipIcon,
 } from "@heroicons/react/24/outline";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -11,17 +10,15 @@ import { AddModelForm } from "../../forms/AddModelForm";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { setDialogMessage, setShowDialog } from "../../redux/slices/uiSlice";
 import { updateSelectedModelByRole } from "../../redux/thunks/updateSelectedModelByRole";
-import { getMetaKeyLabel, isMetaEquivalentKeyPressed } from "../../util";
+import { isMetaEquivalentKeyPressed } from "../../util";
 import { CONFIG_ROUTES } from "../../util/navigation";
 import {
-  Button,
   Listbox,
   ListboxButton,
   ListboxOption,
   ListboxOptions,
   useFontSize,
 } from "../ui";
-import { Divider } from "../ui/Divider";
 
 interface ModelOptionProps {
   option: Option;
@@ -88,7 +85,7 @@ function ModelOption({
     >
       <div className="flex w-full items-center justify-between gap-5">
         <div className="flex items-center gap-2 py-0.5">
-          <CubeIcon className="h-3 w-3 flex-shrink-0" />
+          <CpuChipIcon className="h-3 w-3 flex-shrink-0" />
           <span className="line-clamp-1">
             {option.title}
             {option.isAutoDetected && (
@@ -103,14 +100,14 @@ function ModelOption({
             )}
           </span>
         </div>
-        <Button
+        {/* <Button
           variant="ghost"
           size="sm"
           className="text-description-muted hover:enabled:text-foreground my-0 h-4 w-4 p-0 opacity-0 transition-opacity group-hover:opacity-100"
           onClick={handleConfigureClick}
         >
           <Cog6ToothIcon className="h-3.5 w-3.5" />
-        </Button>
+        </Button> */}
       </div>
     </ListboxOption>
   );
@@ -261,7 +258,7 @@ function ModelSelect() {
         <ListboxOptions className="min-w-[160px]">
           <div className="flex items-center justify-between px-1.5 py-1">
             <span className="text-description text-xs font-medium">Models</span>
-            <div className="flex items-center gap-0.5">
+            {/* <div className="flex items-center gap-0.5">
               <Button
                 onClick={(e) => {
                   e.stopPropagation();
@@ -273,7 +270,7 @@ function ModelSelect() {
               >
                 <Cog6ToothIcon className="text-description h-3.5 w-3.5" />
               </Button>
-            </div>
+            </div> */}
           </div>
 
           <div className="no-scrollbar max-h-[300px] overflow-y-auto">
@@ -301,7 +298,7 @@ function ModelSelect() {
 
           {!isConfigLoading && (
             <>
-              {selectedProfile?.profileType === "local" && (
+              {/* {selectedProfile?.profileType === "local" && (
                 <>
                   <Divider className="!mb-0" />
                   <ListboxOption
@@ -311,20 +308,20 @@ function ModelSelect() {
                     fontSizeModifier={-2}
                     className="px-2 py-2"
                   >
-                    {/* <span className="text-description text-2xs flex flex-row items-center">
+                    <span className="text-description text-2xs flex flex-row items-center">
                       <PlusIcon className="mr-1.5 h-3.5 w-3.5" />
                       Add Chat model
-                    </span> */}
+                    </span>
                   </ListboxOption>
                 </>
-              )}
+              )} */}
 
-              <Divider className="!my-0" />
+              {/* <Divider className="!my-0" />
               <div className="text-description flex items-center justify-start p-2">
                 <span className="block" style={{ fontSize: tinyFont }}>
                   <code>{getMetaKeyLabel()}'</code> to toggle model
                 </span>
-              </div>
+              </div> */}
             </>
           )}
         </ListboxOptions>

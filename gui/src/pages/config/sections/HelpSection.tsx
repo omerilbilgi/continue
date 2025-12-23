@@ -17,6 +17,7 @@ import { isJetBrains } from "../../../util";
 import { ROUTES } from "../../../util/navigation";
 import { ConfigHeader } from "../components/ConfigHeader";
 import { ConfigRow } from "../components/ConfigRow";
+import { AIRS_CODER_DOCUMENTATION } from "./airsCoderDocumentation";
 
 interface KeyboardShortcutProps {
   shortcut: string;
@@ -179,22 +180,25 @@ export function HelpSection() {
           <h3 className="mb-3 text-base font-medium">Resources</h3>
           <Card className="!p-0">
             <div className="flex flex-col">
-              <ConfigRow
+              {/*<ConfigRow
                 title="Continue Hub"
                 description="Visit hub.continue.dev to explore custom agents and blocks"
                 icon={LinkIcon}
                 onClick={() =>
                   ideMessenger.post("openUrl", "https://hub.continue.dev/")
                 }
-              />
+              />*/}
 
               <ConfigRow
                 title="Documentation"
-                description="Learn how to configure and use Continue"
+                description="Learn how to configure and use AIRS Coder"
                 icon={LinkIcon}
-                onClick={() =>
-                  ideMessenger.post("openUrl", "https://docs.continue.dev/")
-                }
+                onClick={async () => {
+                  await ideMessenger.request("showVirtualFile", {
+                    name: "AIRS-Coder-Guide.md",
+                    content: AIRS_CODER_DOCUMENTATION,
+                  });
+                }}
               />
 
               <ConfigRow

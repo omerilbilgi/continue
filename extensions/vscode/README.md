@@ -1,63 +1,189 @@
 <div align="center">
 
-![Continue logo](media/airs.png)
+<h1 align="center">AIRS Coder</h1>
 
-<h1 align="center">AIRS (Fork of Continue)</h1>
-
-> **Note:** This is a fork of [Continue](https://github.com/continuedev/continue), customized and rebranded as AIRS. All original Continue features are preserved, with modifications primarily to branding and extension metadata.
+<p align="center">
+  <strong>AI-Powered Coding Assistant by Roketsan AI Technologies Unit</strong><br/>
+  Intelligent code generation, editing, and analysis powered by advanced AI models
+</p>
 
 <div align="center">
 
 <a target="_blank" href="https://opensource.org/licenses/Apache-2.0" style="background:none">
     <img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" style="height: 22px;" />
 </a>
-<a target="_blank" href="https://docs.continue.dev" style="background:none">
-    <img src="https://img.shields.io/badge/Continue-docs-%23BE1B55.svg?logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNiAyNCIgZmlsbD0id2hpdGUiPgogIDxwYXRoIGQ9Ik0yMC41Mjg2IDMuMjY4MTFMMTkuMTUxMiA1LjY1Njk0TDIyLjYzMjggMTEuNjg0OUMyMi42NTgyIDExLjczMDYgMjIuNjczNSAxMS43ODY2IDIyLjY3MzUgMTEuODM3NEMyMi42NzM1IDExLjg4ODIgMjIuNjU4MiAxMS45NDQxIDIyLjYzMjggMTEuOTg5OUwxOS4xNTEyIDE4LjAyMjlMMjAuNTI4NiAyMC40MTE3TDI1LjQ3OTEgMTEuODM3NEwyMC41Mjg2IDMuMjYzMDNWMy4yNjgxMVpNMTguNjE3NiA1LjM0NjlMMTkuOTk1IDIuOTU4MDdIMTcuMjQwMkwxNS44NjI4IDUuMzQ2OUgxOC42MjI3SDE4LjYxNzZaTTE1Ljg1NzcgNS45NjY5N0wxOS4wNzUgMTEuNTMyNEgyMS44Mjk4TDE4LjYxNzYgNS45NjY5N0gxNS44NTc3Wk0xOC42MTc2IDE3LjcxNzlMMjEuODI5OCAxMi4xNDc0SDE5LjA3NUwxNS44NTc3IDE3LjcxNzlIMTguNjE3NlpNMTUuODU3NyAxOC4zMzhMMTcuMjM1MSAyMC43MTY3SDE5Ljk4OTlMMTguNjEyNSAxOC4zMzhIMTUuODUyNkgxNS44NTc3Wk02LjUyMDk4IDIxLjMwNjNDNi40NjUwNyAyMS4zMDYzIDYuNDE0MjQgMjEuMjkxIDYuMzY4NSAyMS4yNjU2QzYuMzIyNzYgMjEuMjQwMiA2LjI4MjA5IDIxLjE5OTUgNi4yNTY2OCAyMS4xNTM4TDIuNzcwMDIgMTUuMTIwN0gwLjAxNTI0ODJMNC45NjU3IDIzLjY5SDE0Ljg2MTVMMTMuNDg0MSAyMS4zMDYzSDYuNTI2MDZINi41MjA5OFpNMTQuMDE3OCAyMC45OTYyTDE1LjM5NTIgMjMuMzhMMTYuNzcyNiAyMC45OTExTDE1LjM5NTIgMTguNjAyM0wxNC4wMTc4IDIwLjk5MTFWMjAuOTk2MlpNMTQuODYxNSAxOC4yOTc0SDguNDM3MTJMNy4wNTk3MyAyMC42ODYySDEzLjQ4NDFMMTQuODYxNSAxOC4yOTc0Wk03Ljg5ODM2IDE3Ljk5MjRMNC42ODEwOCAxMi40MjE5TDMuMzAzNjkgMTQuODEwN0w2LjUyMDk4IDIwLjM4MTJMNy44OTgzNiAxNy45OTI0Wk0wLjAxMDE2NTQgMTQuNTAwN0gyLjc2NDk0TDQuMTQyMzIgMTIuMTExOEgxLjM5MjYzTDAuMDEwMTY1NCAxNC41MDA3Wk02LjI0MTQzIDIuNTQxM0M2LjI2Njg1IDIuNDk1NTYgNi4zMDc1MSAyLjQ1NDkgNi4zNTMyNSAyLjQyOTQ4QzYuMzk5IDIuNDA0MDcgNi40NTQ5IDIuMzg4ODIgNi41MDU3MyAyLjM4ODgySDEzLjQ3NEwxNC44NTE0IDBINC45NTA0NUwwIDguNTc0MzVIMi43NTQ3N0w2LjIzMTI3IDIuNTQ2MzhMNi4yNDE0MyAyLjU0MTNaTTQuMTQyMzIgMTEuNTc4MkwyLjc2NDk0IDkuMTg5MzRIMC4wMTAxNjU0TDEuMzg3NTUgMTEuNTc4Mkg0LjE0MjMyWk02LjUxMDgxIDMuMzEzODZMMy4yOTg2MSA4Ljg3OTNMNC42NzU5OSAxMS4yNjgxTDcuODg4MiA1LjcwMjY4TDYuNTEwODEgMy4zMTM4NlpNMTMuNDc5MSAzLjAwMzgySDcuMDQ0NDhMOC40MjE4NyA1LjM5MjY0SDE0Ljg1NjRMMTMuNDc5MSAzLjAwMzgyWk0xNS4zOTUyIDUuMDgyNkwxNi43Njc1IDIuNjk4ODZMMTUuMzk1MiAwLjMxMDAzOEwxNC4wMTc4IDIuNjkzNzhMMTUuMzk1MiA1LjA4MjZaIi8+Cjwvc3ZnPg==" style="height: 22px;" />
+<a target="_blank" href="https://github.com/omerilbilgi/continue" style="background:none">
+    <img src="https://img.shields.io/badge/GitHub-Repository-black.svg?logo=github" style="height: 22px;" />
 </a>
-<a target="_blank" href="https://discord.gg/vapESyrFmJ" style="background:none">
-    <img src="https://img.shields.io/badge/discord-join-continue.svg?labelColor=191937&color=6F6FF7&logo=discord" style="height: 22px;" />
-</a>
-
-<p></p>
 
 </div>
 
-<h1 align="center">Continue</h1>
+</div>
+
+---
+
+## 🚀 What is AIRS Coder?
+
+**AIRS Coder** is a sophisticated AI coding assistant designed to accelerate your development workflow. Built on the foundation of Continue and enhanced by Roketsan AI Technologies Unit, it brings enterprise-grade AI capabilities directly into your VS Code editor.
+
+Whether you're writing new code, debugging issues, or refactoring legacy systems, AIRS Coder provides intelligent assistance powered by state-of-the-art language models including GPT-4, Claude, Qwen, and more.
+
+---
+
+## ✨ Key Features
+
+### 💬 **Intelligent Chat Assistant**
+
+Ask questions about your codebase, get explanations for complex logic, and receive instant answers with full context awareness.
+
+- **Codebase-aware responses** - Understands your entire project structure
+- **Multi-language support** - Works with Python, JavaScript, TypeScript, Java, C++, and 50+ languages
+- **Smart context selection** - Automatically includes relevant files and functions
+
+![Chat Feature](docs/images/chat.gif)
+
+### ✏️ **Code Editing & Generation**
+
+Transform natural language instructions into working code, refactor existing implementations, and apply changes without leaving your editor.
+
+- **In-line editing** - Modify code sections with natural language commands
+- **Full-file generation** - Create complete implementations from descriptions
+- **Intelligent refactoring** - Modernize code while preserving functionality
+- **Bug fixing** - Automatically detect and fix common issues
+
+![Edit Feature](docs/images/edit.gif)
+
+### ⚡ **Smart Autocomplete**
+
+Get context-aware code suggestions as you type, powered by AI models trained on billions of lines of code.
+
+- **Line-by-line completion** - Predicts your next line of code
+- **Multi-line suggestions** - Generates entire code blocks
+- **Pattern recognition** - Learns from your coding style
+- **Low latency** - Real-time suggestions without interruption
+
+![Autocomplete Feature](docs/images/autocomplete.gif)
+
+### 🤖 **AI Agent Mode**
+
+Deploy autonomous AI agents that can plan, execute, and complete complex development tasks end-to-end.
+
+- **Task decomposition** - Breaks down complex requests into actionable steps
+- **Multi-file operations** - Works across your entire codebase
+- **Error recovery** - Automatically handles and fixes errors
+- **Progress tracking** - Transparent visibility into agent actions
+
+![Agent Feature](docs/images/agent.gif)
+
+---
+
+## 📦 Installation
+
+1. **Install from VS Code Marketplace**
+   - Open VS Code
+   - Go to Extensions (`Ctrl+Shift+X` / `Cmd+Shift+X`)
+   - Search for "AIRS Coder"
+   - Click Install
+
+---
+
+## 🎨 Key Capabilities
+
+### Context Providers
+
+- **@Files** - Reference specific files in your workspace
+- **@Code** - Reference functions, classes, or code symbols
+- **@Docs** - Include documentation from popular frameworks
+- **@Terminal** - Use terminal output as context
+- **@Git** - Reference git diff or commit history
+
+### Slash Commands
+
+- `/edit` - Modify code with natural language
+- `/comment` - Generate documentation comments
+- `/fix` - Debug and fix issues
+- `/test` - Generate unit tests
+- `/optimize` - Improve performance
+
+---
+
+## 🏢 Enterprise Ready
+
+- **On-premise deployment** - Run AI models on your infrastructure
+- **Custom model integration** - Connect to proprietary LLMs
+- **Team configuration** - Share settings across your organization
+- **Audit logging** - Track all AI interactions
+- **Data privacy** - Code never leaves your environment (local models)
+
+---
+
+## 📚 Getting Started
+
+### Quick Start Example
+
+1. **Select code** you want to modify
+2. **Press `Ctrl+I`** (or `Cmd+I` on Mac)
+3. **Type your instruction**: "Add error handling to this function"
+4. **Review and accept** the AI-generated changes
+
+### Chat Example
+
+1. **Press `Ctrl+L`** (or `Cmd+L` on Mac)
+2. **Ask a question**: "@Files explain how authentication works"
+3. **Get instant answers** with code references
+
+---
+
+## 🔐 Security & Privacy
+
+- **Local execution option** - Use Ollama for complete privacy
+- **No telemetry required** - Disable data collection in settings
+- **Secure API handling** - Credentials stored in VS Code's secure storage
+- **Code stays yours** - We don't store or train on your code
+
+---
+
+## 💡 Pro Tips
+
+- Use **Ctrl+L** for quick access to chat
+- Use **Ctrl+I** for in-line code editing
+- Combine **@Files** and **@Code** for better context
+- Enable autocomplete for maximum productivity
+- Try local models with Ollama for sensitive projects
+
+---
+
+## 🌟 Community & Support
+
+- **GitHub**: [omerilbilgi/continue](https://github.com/omerilbilgi/continue)
+- **Issues**: Report bugs and request features
+- **Documentation**: Coming soon
+- **Email**: omer.ilbilgi@hotmail.com
+
+---
+
+## 📄 License
+
+Apache 2.0 © 2023-2025 Roketsan AI Technologies Unit
+
+Built on [Continue](https://github.com/continuedev/continue) - Enhanced for enterprise use.
+
+---
 
 <div align="center">
 
-**Ship faster with Continuous AI**
+**Start coding smarter with AIRS Coder today!**
 
-**Build and run custom agents across your IDE, terminal, and CI**
-
-</div>
-
-## Agent
-
-[Agent](https://docs.continue.dev/features/agent/quick-start) to work on development tasks together with AI
-
-![agent](docs/images/agent.gif)
-
-## Chat
-
-[Chat](https://docs.continue.dev/features/chat/quick-start) to ask general questions and clarify code sections
-
-![chat](docs/images/chat.gif)
-
-## Edit
-
-[Edit](https://docs.continue.dev/features/edit/quick-start) to modify a code section without leaving your current file
-
-![edit](docs/images/edit.gif)
-
-## Autocomplete
-
-[Autocomplete](https://docs.continue.dev/features/autocomplete/quick-start) to receive inline code suggestions as you type
-
-![autocomplete](docs/images/autocomplete.gif)
+[Install Now](https://marketplace.visualstudio.com/) | [View on GitHub](https://github.com/omerilbilgi/continue) | [Report Issue](https://github.com/omerilbilgi/continue/issues)
 
 </div>
 
-## License
+---
 
-[Apache 2.0 © 2023-2025 Continue Dev, Inc.](./LICENSE)
+<div align="center">
+
+**Start coding smarter with AIRS Coder today!**
+
+[Install Now](https://marketplace.visualstudio.com/) | [View on GitHub](https://github.com/omerilbilgi/continue) | [Report Issue](https://github.com/omerilbilgi/continue/issues)
+
+</div>

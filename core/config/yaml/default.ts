@@ -1,13 +1,12 @@
 import { AssistantUnrolled } from "@continuedev/config-yaml";
 
-// TODO
 export const defaultConfigYaml: AssistantUnrolled = {
   name: "AIRS Coder",
   version: "1.0.0",
   schema: "v1",
   models: [
     {
-      name: "Qwen3",
+      name: "AIRS Coder Model",
       provider: "ollama",
       model: "qwen3-serve-40k:latest",
       apiBase: "http://172.17.200.54:11437",
@@ -19,7 +18,7 @@ export const defaultConfigYaml: AssistantUnrolled = {
       provider: "openai",
       model: "qwen-coder-30b",
       apiBase: "http://localhost:8000/v1",
-      roles: ["chat", "edit", "apply"],
+      roles: [],
       capabilities: ["tool_use"],
       defaultCompletionOptions: {
         temperature: 0.2,
@@ -31,7 +30,7 @@ export const defaultConfigYaml: AssistantUnrolled = {
       provider: "openai",
       model: "qwen3-8b",
       apiBase: "http://localhost:8000/v1",
-      roles: ["chat", "edit", "apply"],
+      roles: [],
       defaultCompletionOptions: {
         temperature: 0.2,
         maxTokens: 4096,
@@ -43,14 +42,14 @@ export const defaultConfigYaml: AssistantUnrolled = {
       model: "qwen3-coder:30b",
       apiBase: "http://172.17.200.54:11434",
       capabilities: ["tool_use"],
-      roles: ["chat", "edit", "apply"],
+      roles: [],
     },
     {
       name: "GPT-OSS-20b",
       provider: "ollama",
       model: "gpt-oss:latest",
       apiBase: "http://172.17.200.54:11434",
-      roles: ["chat", "autocomplete", "edit", "apply"],
+      roles: [],
       capabilities: ["tool_use", "reasoning"],
       defaultCompletionOptions: {
         temperature: 0.6,
@@ -64,7 +63,7 @@ export const defaultConfigYaml: AssistantUnrolled = {
       provider: "ollama",
       model: "gpt-oss:120B-16k",
       apiBase: "http://172.17.200.54:11434",
-      roles: ["chat", "autocomplete", "edit", "apply"],
+      roles: [],
       capabilities: ["tool_use", "reasoning"],
       defaultCompletionOptions: {
         temperature: 0.6,
@@ -78,7 +77,7 @@ export const defaultConfigYaml: AssistantUnrolled = {
       provider: "ollama",
       model: "gpt-oss:120B-64k",
       apiBase: "http://172.17.200.54:11434",
-      roles: ["chat", "autocomplete", "edit", "apply"],
+      roles: [],
       capabilities: ["tool_use", "reasoning"],
       defaultCompletionOptions: {
         temperature: 0.6,
@@ -113,7 +112,7 @@ export const defaultConfigYamlJetBrains: AssistantUnrolled = {
   schema: "v1",
   models: [
     {
-      name: "Qwen3",
+      name: "AIRS Coder Model",
       provider: "ollama",
       model: "qwen3-serve-40k:latest",
       apiBase: "http://172.17.200.54:11437",
@@ -159,7 +158,7 @@ export const defaultConfigYamlJetBrains: AssistantUnrolled = {
       provider: "ollama",
       model: "gpt-oss:120B-16k",
       apiBase: "http://172.17.200.54:11434",
-      roles: ["chat", "autocomplete", "edit", "apply"],
+      roles: [],
       capabilities: ["tool_use", "reasoning"],
       defaultCompletionOptions: {
         temperature: 0.6,
@@ -173,7 +172,7 @@ export const defaultConfigYamlJetBrains: AssistantUnrolled = {
       provider: "ollama",
       model: "gpt-oss:120B-64k",
       apiBase: "http://172.17.200.54:11434",
-      roles: ["chat", "autocomplete", "edit", "apply"],
+      roles: [],
       capabilities: ["tool_use", "reasoning"],
       defaultCompletionOptions: {
         temperature: 0.6,

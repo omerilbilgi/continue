@@ -2,7 +2,7 @@
   "name": "airs",
   "icon": "media/airs.png",
   "author": "Roketsan Yapay Zeka Teknolojileri Birimi",
-  "version": "1.0.48",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/omerilbilgi/continue"
@@ -20,7 +20,7 @@
   "license": "Apache-2.0",
   "displayName": "AIRS Coder",
   "pricing": "Free",
-  "description": "AIRS – an open-source AI coding assistant forked from Continue",
+  "description": "AI-powered coding assistant by Roketsan AI Technologies Unit. Built on Continue, enhanced with advanced features for intelligent code generation, editing, and analysis.",
   "publisher": "RoketsanYZTB",
   "engines": {
     "vscode": "^1.70.0",
